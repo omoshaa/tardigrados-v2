@@ -419,21 +419,78 @@
 }
 
 /* --- RESPONSIVIDADE --- */
+
+/* Tablets em modo paisagem */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .objectives-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .students-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .schools-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tech-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .contact-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tablets em modo retrato */
 @media (max-width: 768px) {
   .objectives-grid {
     grid-template-columns: 1fr;
+  }
+
+  .objective-card {
+    padding: 28px 24px;
+    min-height: 160px;
   }
 
   .team-grid {
     grid-template-columns: 1fr;
   }
 
+  .team-card {
+    padding: 32px 28px;
+    min-height: 340px;
+  }
+
+  .team-icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  .team-icon i {
+    font-size: 2.2rem;
+  }
+
   .students-grid {
     grid-template-columns: 1fr;
   }
 
+  .student-card {
+    padding: 24px 20px;
+    min-height: 200px;
+  }
+
   .schools-grid {
     grid-template-columns: 1fr;
+  }
+
+  .school-card {
+    padding: 28px;
   }
 
   .tech-grid {
@@ -447,16 +504,174 @@
   .contact-section {
     padding: 32px 24px;
   }
+
+  .pune-intro {
+    font-size: 1rem;
+  }
+
+  .tech-intro {
+    font-size: 1rem;
+  }
 }
 
+/* Smartphones */
 @media (max-width: 480px) {
+  .objective-card {
+    padding: 24px 20px;
+    min-height: 140px;
+  }
+
+  .objective-card i {
+    font-size: 2rem;
+  }
+
+  .objective-card p {
+    font-size: 0.95rem;
+  }
+
+  .team-card {
+    padding: 24px;
+    min-height: auto;
+  }
+
+  .team-icon {
+    width: 65px;
+    height: 65px;
+  }
+
+  .team-icon i {
+    font-size: 2rem;
+  }
+
+  .team-name {
+    font-size: 1.2rem;
+  }
+
+  .team-role {
+    font-size: 0.95rem;
+  }
+
+  .student-card {
+    padding: 20px;
+    min-height: 180px;
+  }
+
+  .student-icon {
+    width: 55px;
+    height: 55px;
+  }
+
+  .student-icon i {
+    font-size: 1.6rem;
+  }
+
+  .student-name {
+    font-size: 1rem;
+  }
+
+  .student-role {
+    font-size: 0.85rem;
+  }
+
+  .school-card {
+    padding: 24px;
+  }
+
+  .school-card i {
+    font-size: 2rem;
+  }
+
+  .school-card h4 {
+    font-size: 1rem;
+  }
+
   .tech-grid {
     grid-template-columns: 1fr;
   }
 
+  .contact-section {
+    padding: 24px 20px;
+  }
+
+  .pune-intro {
+    font-size: 0.95rem;
+    padding: 0 12px;
+  }
+
+  .tech-intro {
+    font-size: 0.95rem;
+    padding: 0 12px;
+  }
+}
+
+/* Dispositivos muito pequenos */
+@media (max-width: 360px) {
+  .objective-card,
+  .student-card,
+  .school-card {
+    padding: 20px 16px;
+  }
+
+  .team-card {
+    padding: 20px;
+  }
+
+  .team-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .team-icon i {
+    font-size: 1.8rem;
+  }
+
+  .student-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .student-icon i {
+    font-size: 1.5rem;
+  }
+
+  .contact-section {
+    padding: 20px 16px;
+  }
+}
+
+/* Telas grandes */
+@media (min-width: 1440px) {
+  .objectives-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .students-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .schools-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .tech-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+/* Orientação paisagem em smartphones */
+@media (max-height: 500px) and (orientation: landscape) {
   .team-card,
   .student-card,
   .objective-card {
-    padding: 24px;
+    padding: 20px;
+    min-height: auto;
+  }
+
+  .contact-section {
+    padding: 20px;
   }
 }

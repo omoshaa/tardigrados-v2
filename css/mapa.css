@@ -242,6 +242,23 @@
 }
 
 /* Mobile Responsiveness */
+
+/* Tablets em modo paisagem */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .filters-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .leaflet-map {
+    height: 450px;
+  }
+}
+
+/* Tablets em modo retrato */
 @media (max-width: 768px) {
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -264,12 +281,40 @@
     font-size: 24px;
   }
 
+  .stat-label {
+    font-size: 12px;
+  }
+
+  .filters-section {
+    padding: 20px;
+  }
+
+  .filters-section h3 {
+    font-size: 18px;
+  }
+
   .filters-grid {
     grid-template-columns: 1fr;
   }
 
+  .filter-group select {
+    padding: 10px;
+  }
+
+  .map-container {
+    padding: 20px;
+  }
+
   .leaflet-map {
     height: 400px;
+  }
+
+  .table-section {
+    padding: 20px;
+  }
+
+  .table-section h3 {
+    font-size: 18px;
   }
 
   .records-table {
@@ -280,11 +325,61 @@
   .records-table td {
     padding: 10px 8px;
   }
+
+  .records-table th {
+    font-size: 11px;
+  }
 }
 
+/* Smartphones */
 @media (max-width: 480px) {
   .stats-grid {
     grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .stat-card {
+    padding: 14px;
+  }
+
+  .stat-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+  }
+
+  .stat-value {
+    font-size: 22px;
+  }
+
+  .stat-label {
+    font-size: 11px;
+  }
+
+  .filters-section {
+    padding: 16px;
+  }
+
+  .filters-section h3 {
+    font-size: 16px;
+  }
+
+  .filter-group label {
+    font-size: 13px;
+  }
+
+  .filter-group select {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .btn-reset {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .map-container {
+    padding: 16px;
   }
 
   .leaflet-map {
@@ -293,5 +388,96 @@
 
   .table-section {
     padding: 16px;
+  }
+
+  .table-section h3 {
+    font-size: 16px;
+  }
+
+  .records-table {
+    font-size: 11px;
+  }
+
+  .records-table th,
+  .records-table td {
+    padding: 8px 6px;
+  }
+
+  .records-table th {
+    font-size: 10px;
+  }
+
+  .leaflet-popup-content h4 {
+    font-size: 14px;
+  }
+
+  .leaflet-popup-content p {
+    font-size: 12px;
+  }
+}
+
+/* Dispositivos muito pequenos */
+@media (max-width: 360px) {
+  .stats-grid {
+    gap: 8px;
+  }
+
+  .stat-card {
+    padding: 12px;
+  }
+
+  .stat-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .stat-value {
+    font-size: 20px;
+  }
+
+  .filters-section,
+  .map-container,
+  .table-section {
+    padding: 12px;
+  }
+
+  .leaflet-map {
+    height: 280px;
+  }
+
+  .btn-reset {
+    padding: 9px 16px;
+    font-size: 13px;
+  }
+}
+
+/* Telas grandes */
+@media (min-width: 1440px) {
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .filters-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .leaflet-map {
+    height: 600px;
+  }
+}
+
+/* Orientação paisagem em smartphones */
+@media (max-height: 500px) and (orientation: landscape) {
+  .leaflet-map {
+    height: 250px;
+  }
+
+  .stat-card {
+    padding: 10px;
+  }
+
+  .filters-section {
+    padding: 12px;
   }
 }

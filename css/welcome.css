@@ -89,22 +89,28 @@ body {
   z-index: 10;
   text-align: center;
   max-width: 900px;
-  padding: 60px 50px;
+  width: 90%;
+  max-height: 95vh;
+  padding: 20px 40px;
   background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(20px);
   border-radius: 32px;
   border: 2px solid rgba(255, 255, 255, 0.5);
   box-shadow: var(--shadow-strong);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* Logo */
 .logo-container {
-  margin-bottom: 40px;
+  margin-bottom: 15px;
 }
 
 .logo-circle {
-  width: 120px;
-  height: 120px;
+  width: 90px;
+  height: 90px;
   margin: 0 auto;
   background: linear-gradient(
     135deg,
@@ -120,7 +126,7 @@ body {
 }
 
 .logo-circle i {
-  font-size: 60px;
+  font-size: 45px;
   color: white;
 }
 
@@ -138,9 +144,9 @@ body {
 
 /* Título */
 .welcome-title {
-  font-size: 3.2rem;
+  font-size: 2.2rem;
   font-weight: 800;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   color: var(--text-primary);
   line-height: 1.2;
 }
@@ -157,17 +163,17 @@ body {
 }
 
 .welcome-subtitle {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: var(--text-secondary);
-  margin-bottom: 28px;
+  margin-bottom: 12px;
   font-weight: 500;
 }
 
 .welcome-description {
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   color: var(--text-secondary);
-  margin-bottom: 50px;
-  line-height: 1.8;
+  margin-bottom: 20px;
+  line-height: 1.5;
   padding: 0 20px;
 }
 
@@ -175,8 +181,8 @@ body {
 .features-preview {
   display: flex;
   justify-content: center;
-  gap: 50px;
-  margin-bottom: 55px;
+  gap: 30px;
+  margin-bottom: 25px;
   flex-wrap: wrap;
 }
 
@@ -193,15 +199,15 @@ body {
 }
 
 .feature-item i {
-  font-size: 40px;
+  font-size: 30px;
   color: var(--primary);
   background: rgba(46, 125, 50, 0.1);
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 20px;
+  border-radius: 16px;
   transition: all 0.3s ease;
 }
 
@@ -220,9 +226,9 @@ body {
 .enter-button {
   display: inline-flex;
   align-items: center;
-  gap: 16px;
-  padding: 22px 50px;
-  font-size: 1.2rem;
+  gap: 12px;
+  padding: 15px 40px;
+  font-size: 1rem;
   font-weight: 700;
   color: white;
   background: linear-gradient(
@@ -238,7 +244,7 @@ body {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  margin-bottom: 35px;
+  margin-bottom: 15px;
 }
 
 .enter-button::before {
@@ -272,9 +278,9 @@ body {
 
 /* Créditos */
 .credits {
-  margin-top: 48px;
+  margin-top: 15px;
   color: var(--text-secondary);
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 
 .credits p {
@@ -358,63 +364,137 @@ body {
 /* Responsividade */
 @media (max-width: 768px) {
   .welcome-content {
-    padding: 32px 24px;
+    padding: 20px 20px;
     border-radius: 24px;
+    width: 95%;
+  }
+
+  .welcome-title {
+    font-size: 1.8rem;
+  }
+
+  .welcome-subtitle {
+    font-size: 1rem;
+  }
+
+  .welcome-description {
+    font-size: 0.9rem;
+    padding: 0 10px;
+  }
+
+  .logo-circle {
+    width: 80px;
+    height: 80px;
+  }
+
+  .logo-circle i {
+    font-size: 40px;
+  }
+
+  .features-preview {
+    gap: 20px;
+  }
+
+  .feature-item i {
+    width: 55px;
+    height: 55px;
+    font-size: 26px;
+  }
+
+  .feature-item span {
+    font-size: 0.85rem;
+  }
+
+  .enter-button {
+    padding: 14px 32px;
+    font-size: 0.95rem;
+  }
+
+  .floating-tardigrade {
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .tardigrade-icon {
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome-content {
+    padding: 15px 15px;
+    width: 96%;
+  }
+
+  .welcome-title {
+    font-size: 1.5rem;
+  }
+
+  .welcome-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .welcome-description {
+    font-size: 0.85rem;
+  }
+
+  .logo-circle {
+    width: 70px;
+    height: 70px;
+  }
+
+  .logo-circle i {
+    font-size: 35px;
+  }
+
+  .features-preview {
+    gap: 15px;
+  }
+
+  .feature-item i {
+    width: 50px;
+    height: 50px;
+    font-size: 22px;
+  }
+
+  .feature-item span {
+    font-size: 0.8rem;
+  }
+
+  .enter-button {
+    padding: 12px 28px;
+    font-size: 0.9rem;
+  }
+
+  .credits {
+    font-size: 0.75rem;
+  }
+
+  .floating-tardigrade {
+    bottom: 10px;
+    right: 10px;
+  }
+
+  .tardigrade-icon {
+    font-size: 40px;
+  }
+}
+
+/* Tablets em modo paisagem */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .welcome-content {
+    max-width: 750px;
+    padding: 25px 35px;
   }
 
   .welcome-title {
     font-size: 2rem;
   }
-
-  .welcome-subtitle {
-    font-size: 1.2rem;
-  }
-
-  .welcome-description {
-    font-size: 1rem;
-  }
-
-  .logo-circle {
-    width: 100px;
-    height: 100px;
-  }
-
-  .logo-circle i {
-    font-size: 50px;
-  }
-
-  .features-preview {
-    gap: 24px;
-  }
-
-  .feature-item i {
-    width: 60px;
-    height: 60px;
-    font-size: 30px;
-  }
-
-  .enter-button {
-    padding: 16px 36px;
-    font-size: 1.1rem;
-  }
-
-  .floating-tardigrade {
-    bottom: 20px;
-    right: 20px;
-  }
-
-  .tardigrade-icon {
-    font-size: 60px;
-  }
 }
 
-@media (max-width: 480px) {
-  .welcome-title {
-    font-size: 1.75rem;
-  }
-
-  .features-preview {
-    flex-direction: column;
-    gap: 16px;
+/* Telas grandes */
+@media (min-width: 1440px) {
+  .welcome-content {
+    max-width: 1000px;
   }
 }

@@ -454,17 +454,47 @@
 }
 
 /* --- RESPONSIVIDADE --- */
+
+/* Tablets em modo paisagem */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .page-header {
+    padding: 70px 30px 50px;
+  }
+
+  .superpowers-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .crypto-section {
+    padding: 40px 32px;
+  }
+}
+
+/* Tablets em modo retrato */
 @media (max-width: 768px) {
   .page-header {
     padding: 60px 20px 40px;
+  }
+
+  .page-header h1 {
+    font-size: 2.5rem;
+  }
+
+  .page-subtitle {
+    font-size: 1.2rem;
   }
 
   .hero-card {
     padding: 32px 24px;
   }
 
+  .hero-emoji {
+    font-size: 3rem;
+  }
+
   .crypto-content {
     grid-template-columns: 1fr;
+    gap: 30px;
   }
 
   .crypto-section {
@@ -473,6 +503,10 @@
 
   .superpowers-grid {
     grid-template-columns: 1fr;
+  }
+
+  .superpower-card {
+    min-height: auto;
   }
 
   .facts-grid {
@@ -491,11 +525,40 @@
   .features-preview-list {
     padding: 24px;
   }
+
+  .content-section {
+    padding: 40px 20px;
+  }
 }
 
+/* Smartphones */
 @media (max-width: 480px) {
+  .page-header {
+    padding: 50px 16px 30px;
+  }
+
+  .page-header h1 {
+    font-size: 2rem;
+  }
+
+  .page-subtitle {
+    font-size: 1rem;
+  }
+
+  .hero-card {
+    padding: 24px 20px;
+  }
+
+  .hero-emoji {
+    font-size: 2.5rem;
+  }
+
   .superpower-card {
     padding: 24px;
+  }
+
+  .power-icon {
+    font-size: 2.5rem;
   }
 
   .fact-card {
@@ -508,5 +571,66 @@
 
   .construction-icon {
     font-size: 4rem;
+  }
+
+  .crypto-section {
+    padding: 24px 20px;
+  }
+
+  .content-section {
+    padding: 30px 16px;
+  }
+
+  .section-heading {
+    font-size: 1.8rem;
+  }
+}
+
+/* Dispositivos muito pequenos */
+@media (max-width: 360px) {
+  .page-header {
+    padding: 40px 12px 25px;
+  }
+
+  .page-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .hero-card {
+    padding: 20px 16px;
+  }
+
+  .superpower-card {
+    padding: 20px;
+  }
+
+  .crypto-section {
+    padding: 20px 16px;
+  }
+}
+
+/* Telas grandes */
+@media (min-width: 1440px) {
+  .superpowers-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .hero-card {
+    padding: 60px;
+  }
+
+  .crypto-section {
+    padding: 60px;
+  }
+}
+
+/* Orientação paisagem em smartphones */
+@media (max-height: 500px) and (orientation: landscape) {
+  .page-header {
+    padding: 40px 20px 30px;
+  }
+
+  .content-section {
+    padding: 30px 20px;
   }
 }

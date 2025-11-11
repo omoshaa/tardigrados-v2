@@ -922,7 +922,38 @@
 }
 
 /* Mobile Responsiveness */
+
+/* Tablets em modo paisagem */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .key-container {
+    padding: 28px;
+  }
+
+  .key-options {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tablets em modo retrato */
 @media (max-width: 768px) {
+  .tools-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tool-card {
+    padding: 32px 24px;
+  }
+
+  .tool-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 32px;
+  }
+
   .key-container {
     padding: 20px;
   }
@@ -950,6 +981,10 @@
     font-size: 16px;
   }
 
+  .result-card {
+    padding: 24px;
+  }
+
   .result-card h4 {
     font-size: 22px;
   }
@@ -959,13 +994,45 @@
   }
 }
 
+/* Smartphones */
 @media (max-width: 480px) {
+  .tool-card {
+    padding: 28px 20px;
+  }
+
+  .tool-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 28px;
+  }
+
+  .tool-card h3 {
+    font-size: 20px;
+  }
+
+  .tool-card p {
+    font-size: 14px;
+  }
+
+  .btn-tool {
+    padding: 12px 24px;
+    font-size: 15px;
+  }
+
   .key-container {
     padding: 16px;
   }
 
   .key-title {
     font-size: 18px;
+  }
+
+  .key-question {
+    padding: 16px;
+  }
+
+  .key-question p {
+    font-size: 15px;
   }
 
   .key-option {
@@ -976,7 +1043,83 @@
     font-size: 14px;
   }
 
+  .key-option-image {
+    max-width: 200px;
+  }
+
+  .result-card {
+    padding: 20px;
+  }
+
+  .result-card h4 {
+    font-size: 20px;
+  }
+
+  .result-card p {
+    font-size: 15px;
+  }
+
+  .congrats-message {
+    font-size: 18px;
+    padding: 14px 20px;
+  }
+
   .history-section {
     padding: 16px;
+  }
+}
+
+/* Dispositivos muito pequenos */
+@media (max-width: 360px) {
+  .tool-card {
+    padding: 24px 16px;
+  }
+
+  .tool-icon {
+    width: 55px;
+    height: 55px;
+    font-size: 24px;
+  }
+
+  .key-container {
+    padding: 12px;
+  }
+
+  .key-question {
+    padding: 12px;
+  }
+
+  .key-option {
+    padding: 12px;
+  }
+
+  .result-card {
+    padding: 16px;
+  }
+}
+
+/* Telas grandes */
+@media (min-width: 1440px) {
+  .tools-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .key-options {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Orientação paisagem em smartphones */
+@media (max-height: 500px) and (orientation: landscape) {
+  .key-container {
+    padding: 16px;
+  }
+
+  .key-question {
+    padding: 12px;
+  }
+
+  .result-card {
+    padding: 20px;
   }
 }
