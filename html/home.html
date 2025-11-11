@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"
+    />
+    <meta name="theme-color" content="#2e7d32" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <title>TardiStudy | Portal de Estudos de Tardigrada</title>
+    <meta
+      name="description"
+      content="Portal educativo especializado no estudo de Tardigrada com mapa interativo, cadastro e chaves dicotômicas."
+    />
+
+    <link rel="stylesheet" href="../css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="icon" type="image/png" href="../assets/tardigrade-icon.png" />
+    <link rel="manifest" href="../manifest.json" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header>
+      <nav class="navbar">
+        <div class="logo">
+          <img
+            src="../assets/tardigrade-icon.png"
+            alt="TardiStudy Logo"
+            class="logo-img"
+          />
+          <span>TardiStudy</span>
+        </div>
+
+        <div class="nav-links desktop-nav">
+          <a href="home.html" class="nav-item active">Início</a>
+          <a href="mapa.html" class="nav-item">Mapa</a>
+          <a href="identificacao.html" class="nav-item">Identificação</a>
+          <a href="sobre-tardigrados.html" class="nav-item"
+            >Sobre Tardígrados</a
+          >
+          <a href="projeto-pune.html" class="nav-item">Projeto PUNE</a>
+        </div>
+
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </nav>
+
+      <!-- Menu Mobile -->
+      <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-content">
+          <button
+            class="mobile-nav-close"
+            id="closeMenuBtn"
+            aria-label="Fechar menu"
+          >
+            <i class="fas fa-times"></i>
+          </button>
+          <nav class="mobile-nav-links">
+            <a href="home.html" class="mobile-nav-item">
+              <i class="fas fa-home"></i>
+              <span>Início</span>
+            </a>
+            <a href="mapa.html" class="mobile-nav-item">
+              <i class="fas fa-map"></i>
+              <span>Mapa de Tardigrada</span>
+            </a>
+            <a href="identificacao.html" class="mobile-nav-item">
+              <i class="fas fa-search"></i>
+              <span>Identificação</span>
+            </a>
+            <a href="sobre-tardigrados.html" class="mobile-nav-item">
+              <i class="fas fa-microscope"></i>
+              <span>Sobre Tardígrados</span>
+            </a>
+            <a href="projeto-pune.html" class="mobile-nav-item">
+              <i class="fas fa-info-circle"></i>
+              <span>Projeto PUNE</span>
+            </a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <section class="hero-section">
+        <div class="hero-background"></div>
+        <div class="container hero-content">
+          <div class="hero-text">
+            <h1 class="hero-title">
+              <span class="gradient-text">TardiStudy</span>
+            </h1>
+            <p class="hero-subtitle">
+              Portal Educativo Especializado em <strong>Tardigrada</strong>
+            </p>
+            <p class="hero-description">
+              Explore, aprenda e contribua para o conhecimento sobre os
+              fascinantes tardígrados - os organismos mais resistentes do
+              planeta 🐻💧
+            </p>
+          </div>
+
+          <!-- Cards de Menu -->
+          <div class="menu-grid">
+            <a href="mapa.html" class="menu-card">
+              <div class="card-icon">
+                <i class="fas fa-map-marked-alt"></i>
+              </div>
+              <h3>Mapa de Tardigrada</h3>
+              <p>
+                Visualize a distribuição geográfica dos tardígrados pelo mundo
+              </p>
+              <div class="card-arrow">
+                <i class="fas fa-arrow-right"></i>
+              </div>
+            </a>
+
+            <a href="identificacao.html" class="menu-card">
+              <div class="card-icon">
+                <i class="fas fa-search"></i>
+              </div>
+              <h3>Identificação</h3>
+              <p>
+                Ferramentas para identificar e cadastrar espécimes de
+                tardígrados
+              </p>
+              <div class="card-arrow">
+                <i class="fas fa-arrow-right"></i>
+              </div>
+            </a>
+
+            <a href="sobre-tardigrados.html" class="menu-card">
+              <div class="card-icon">
+                <i class="fas fa-microscope"></i>
+              </div>
+              <h3>Sobre Tardígrados</h3>
+              <p>
+                Aprenda sobre os "ursos d'água" e suas incríveis capacidades
+              </p>
+              <div class="card-arrow">
+                <i class="fas fa-arrow-right"></i>
+              </div>
+            </a>
+
+            <a href="projeto-pune.html" class="menu-card">
+              <div class="card-icon">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <h3>Projeto PUNE</h3>
+              <p>Conheça o Projeto Urso Na Escola, equipe e objetivos</p>
+              <div class="card-arrow">
+                <i class="fas fa-arrow-right"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Seção de Destaque -->
+      <section class="features-section">
+        <div class="container">
+          <h2 class="section-title">Por que estudar Tardígrados?</h2>
+          <p class="section-subtitle">
+            Descubra o que torna esses microorganismos tão especiais
+          </p>
+
+          <div class="features-grid">
+            <div class="feature-box">
+              <div class="feature-icon">🌍</div>
+              <h3>Distribuição Global</h3>
+              <p>
+                Encontrados em todos os continentes, do Himalaia ao fundo dos
+                oceanos
+              </p>
+            </div>
+
+            <div class="feature-box">
+              <div class="feature-icon">🔬</div>
+              <h3>Pesquisa Científica</h3>
+              <p>Modelos para estudos de resistência extrema e astrobiologia</p>
+            </div>
+
+            <div class="feature-box">
+              <div class="feature-icon">🎓</div>
+              <h3>Educação</h3>
+              <p>
+                Ferramentas educativas acessíveis para estudantes e professores
+              </p>
+            </div>
+
+            <div class="feature-box">
+              <div class="feature-icon">🤝</div>
+              <h3>Ciência Cidadã</h3>
+              <p>
+                Contribua com descobertas e ajude a expandir o conhecimento
+                científico
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <p>
+          &copy; 2025 TardiStudy - Portal Educativo Especializado em Tardigrada
+        </p>
+        <p class="footer-credit">
+          Desenvolvido pelo <strong>Projeto PUNE</strong> em parceria com LEOM -
+          UNICAMP
+        </p>
+      </div>
+    </footer>
+
+    <!-- Botão Voltar ao Topo -->
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Voltar ao topo">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="../js/main.js"></script>
+  </body>
+</html>

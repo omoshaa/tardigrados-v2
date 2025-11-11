@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#2e7d32" />
+    <title>Identificação | TardiStudy</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="../css/identificacao.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="icon" type="image/png" href="../assets/tardigrade-icon.png" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header>
+      <nav class="navbar">
+        <div class="logo">
+          <img
+            src="../assets/tardigrade-icon.png"
+            alt="TardiStudy Logo"
+            class="logo-img"
+          />
+          <span>TardiStudy</span>
+        </div>
+
+        <div class="nav-links desktop-nav">
+          <a href="home.html" class="nav-item">Início</a>
+          <a href="mapa.html" class="nav-item">Mapa</a>
+          <a href="identificacao.html" class="nav-item active">Identificação</a>
+          <a href="sobre-tardigrados.html" class="nav-item"
+            >Sobre Tardígrados</a
+          >
+          <a href="projeto-pune.html" class="nav-item">Projeto PUNE</a>
+        </div>
+
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </nav>
+
+      <!-- Menu Mobile -->
+      <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-content">
+          <button
+            class="mobile-nav-close"
+            id="closeMenuBtn"
+            aria-label="Fechar menu"
+          >
+            <i class="fas fa-times"></i>
+          </button>
+          <nav class="mobile-nav-links">
+            <a href="home.html" class="mobile-nav-item">
+              <i class="fas fa-home"></i>
+              <span>Início</span>
+            </a>
+            <a href="mapa.html" class="mobile-nav-item">
+              <i class="fas fa-map"></i>
+              <span>Mapa de Tardigrada</span>
+            </a>
+            <a href="identificacao.html" class="mobile-nav-item">
+              <i class="fas fa-search"></i>
+              <span>Identificação</span>
+            </a>
+            <a href="sobre-tardigrados.html" class="mobile-nav-item">
+              <i class="fas fa-microscope"></i>
+              <span>Sobre Tardígrados</span>
+            </a>
+            <a href="projeto-pune.html" class="mobile-nav-item">
+              <i class="fas fa-info-circle"></i>
+              <span>Projeto PUNE</span>
+            </a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <section class="page-header">
+        <div class="container">
+          <h1>🔍 Identificação de Tardígrados</h1>
+          <p class="page-subtitle">
+            Use a chave dicotômica interativa para identificar tardígrados
+          </p>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <div class="container">
+          <!-- Cards Grid -->
+          <div class="tools-grid">
+            <!-- Card 1: Chave Dicotômica -->
+            <div class="tool-card">
+              <div class="tool-icon">
+                <i class="fas fa-code-branch"></i>
+              </div>
+              <h3>Chave Dicotômica</h3>
+              <p>Identifique seu espécime passo a passo</p>
+              <button class="btn-tool" onclick="showSection('key-section')">
+                Iniciar Identificação
+              </button>
+            </div>
+
+            <!-- Card 2: Cadastrar Achados -->
+            <div class="tool-card">
+              <div class="tool-icon">
+                <i class="fas fa-plus-circle"></i>
+              </div>
+              <h3>Cadastrar Achados</h3>
+              <p>Contribua para o banco de dados</p>
+              <button
+                class="btn-tool"
+                onclick="showSection('register-section')"
+              >
+                Cadastrar Espécime
+              </button>
+            </div>
+
+            <!-- Card 3: Guia de Estruturas -->
+            <div class="tool-card">
+              <div class="tool-icon">
+                <i class="fas fa-book"></i>
+              </div>
+              <h3>Guia de Estruturas</h3>
+              <p>Glossário visual da anatomia</p>
+              <button
+                class="btn-tool"
+                onclick="showSection('morphology-section')"
+              >
+                Ver Guia
+              </button>
+            </div>
+
+            <!-- Card 4: Como Coletar -->
+            <div class="tool-card">
+              <div class="tool-icon">
+                <i class="fas fa-vial"></i>
+              </div>
+              <h3>Como Coletar</h3>
+              <p>Manuais e dicas para coleta</p>
+              <button class="btn-tool" onclick="showSection('guide-section')">
+                Ver Guia
+              </button>
+            </div>
+
+            <!-- Card 5: Como Fotografar -->
+            <div class="tool-card">
+              <div class="tool-icon">
+                <i class="fas fa-camera"></i>
+              </div>
+              <h3>Como Fotografar</h3>
+              <p>Dicas para fotos em microscópio</p>
+              <button class="btn-tool" onclick="showSection('photo-section')">
+                Ver Dicas
+              </button>
+            </div>
+
+            <!-- Card 6: Anatomia -->
+            <div class="tool-card">
+              <div class="tool-icon">
+                <i class="fas fa-draw-polygon"></i>
+              </div>
+              <h3>Anatomia</h3>
+              <p>Manuais de anatomia detalhada</p>
+              <button class="btn-tool" onclick="showSection('anatomy-section')">
+                Ver Anatomia
+              </button>
+            </div>
+          </div>
+
+          <!-- Chave Dicotômica Section (Hidden by default) -->
+          <div id="key-section" class="content-panel" style="display: none">
+            <button class="btn-back" onclick="hideAllSections()">
+              <i class="fas fa-arrow-left"></i> Voltar
+            </button>
+
+            <!-- Info Box -->
+            <div class="info-box">
+              <h3><i class="fas fa-info-circle"></i> Como Usar</h3>
+              <p>
+                <strong>Chave Dicotômica:</strong> Ferramenta científica que
+                utiliza perguntas com duas alternativas para identificar
+                organismos. Leia cada pergunta cuidadosamente, observe as
+                características do seu espécime e escolha a opção que melhor se
+                adequa. O sistema irá guiá-lo até a identificação correta!
+              </p>
+            </div>
+
+            <!-- Chave Dicotômica -->
+            <div class="key-container">
+              <div class="key-header">
+                <h2 class="key-title" id="step-title">
+                  <i class="fas fa-microscope"></i>
+                  Filo Tardigrada: Classes
+                </h2>
+                <button class="btn-reset-key" id="reset-key-btn">
+                  <i class="fas fa-redo"></i>
+                  Recomeçar
+                </button>
+              </div>
+
+              <!-- Step Content -->
+              <div id="key-step">
+                <div id="step-content">
+                  <!-- Será preenchido via JavaScript -->
+                </div>
+              </div>
+
+              <!-- Result Content -->
+              <div id="key-result" class="key-result">
+                <div id="result-content">
+                  <!-- Será preenchido via JavaScript -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Histórico de Escolhas -->
+            <div class="history-section">
+              <h3><i class="fas fa-history"></i> Histórico de Escolhas</h3>
+              <ul class="history-list" id="history-list">
+                <li class="history-item">
+                  <div
+                    class="history-answer"
+                    style="text-align: center; color: #999"
+                  >
+                    Suas escolhas aparecerão aqui durante a identificação.
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Guia de Estruturas Section (Hidden by default) -->
+          <div
+            id="morphology-section"
+            class="content-panel"
+            style="display: none"
+          >
+            <button class="btn-back" onclick="hideAllSections()">
+              <i class="fas fa-arrow-left"></i> Voltar
+            </button>
+
+            <h3>
+              <i class="fas fa-shapes"></i> Guia de Estruturas Morfológicas
+            </h3>
+            <div class="morphology-grid">
+              <div class="morphology-card">
+                <img
+                  src="../assets/fig6.png"
+                  alt="Garras"
+                  class="morphology-image"
+                  onerror="this.parentElement.innerHTML='<div class=\'morphology-icon\'>🦵</div><h4>Garras</h4><p>As garras podem ser em formato Y, L ou V. Observe o número (2-4 por perna) e a forma de inserção na perna.</p>'"
+                />
+                <h4>Garras</h4>
+                <p>
+                  As garras podem ser em formato Y, L ou V. Observe o número
+                  (2-4 por perna) e a forma de inserção na perna.
+                </p>
+              </div>
+              <div class="morphology-card">
+                <img
+                  src="../assets/fig7.png"
+                  alt="Macroplacóides"
+                  class="morphology-image"
+                  onerror="this.parentElement.innerHTML='<div class=\'morphology-icon\'>🔬</div><h4>Macroplacóides</h4><p>Estruturas na faringe. Conte quantos há (2 ou 3) e observe a forma (haste ou gota) e presença de septo.</p>'"
+                />
+                <h4>Macroplacóides</h4>
+                <p>
+                  Estruturas na faringe. Conte quantos há (2 ou 3) e observe a
+                  forma (haste ou gota) e presença de septo.
+                </p>
+              </div>
+              <div class="morphology-card">
+                <img
+                  src="../assets/fig1.png"
+                  alt="Cirros Laterais"
+                  class="morphology-image"
+                  onerror="this.parentElement.innerHTML='<div class=\'morphology-icon\'>🎯</div><h4>Cirros Laterais</h4><p>Apêndices sensoriais na cabeça. Presente em Heterotardigrada, ausente em Eutardigrada.</p>'"
+                />
+                <h4>Cirros Laterais</h4>
+                <p>
+                  Apêndices sensoriais na cabeça. Presente em Heterotardigrada,
+                  ausente em Eutardigrada.
+                </p>
+              </div>
+              <div class="morphology-card">
+                <img
+                  src="../assets/placa-entalhada.png"
+                  alt="Placas Dorsais"
+                  class="morphology-image"
+                  onerror="this.parentElement.innerHTML='<div class=\'morphology-icon\'>🛡️</div><h4>Placas Dorsais</h4><p>Estruturas de proteção. Observe se há placa pseudosegmentar e se a placa terminal é entalhada ou dividida.</p>'"
+                />
+                <h4>Placas Dorsais</h4>
+                <p>
+                  Estruturas de proteção. Observe se há placa pseudosegmentar e
+                  se a placa terminal é entalhada ou dividida.
+                </p>
+              </div>
+              <div class="morphology-card">
+                <img
+                  src="../assets/fig4.png"
+                  alt="Estiletes Bucais"
+                  class="morphology-image"
+                  onerror="this.parentElement.innerHTML='<div class=\'morphology-icon\'>👄</div><h4>Estiletes Bucais</h4><p>Estruturas perfurantes na boca. Presentes em Parachela, ausentes em Apochela.</p>'"
+                />
+                <h4>Estiletes Bucais</h4>
+                <p>
+                  Estruturas perfurantes na boca. Presentes em Parachela,
+                  ausentes em Apochela.
+                </p>
+              </div>
+              <div class="morphology-card">
+                <img
+                  src="../assets/fig12.png"
+                  alt="Lúnulas"
+                  class="morphology-image"
+                  onerror="this.parentElement.innerHTML='<div class=\'morphology-icon\'>🔵</div><h4>Lúnulas</h4><p>Estruturas cuticulares em forma de lua crescente, geralmente nas garras.</p>'"
+                />
+                <h4>Lúnulas</h4>
+                <p>
+                  Estruturas cuticulares em forma de lua crescente, geralmente
+                  nas garras.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Como Coletar Section (Hidden by default) -->
+          <div id="guide-section" class="content-panel" style="display: none">
+            <button class="btn-back" onclick="hideAllSections()">
+              <i class="fas fa-arrow-left"></i> Voltar
+            </button>
+
+            <h3>
+              <i class="fas fa-hand-holding-water"></i> Como Coletar Tardígrados
+            </h3>
+            <div class="guide-steps">
+              <div class="step-card">
+                <div class="step-number">1</div>
+                <h4>Escolha o Substrato</h4>
+                <p>
+                  Musgos, líquens, folhiço úmido, sedimentos de água doce.
+                  Tardígrados vivem em ambientes úmidos.
+                </p>
+              </div>
+              <div class="step-card">
+                <div class="step-number">2</div>
+                <h4>Colete a Amostra</h4>
+                <p>
+                  Use pinças ou retire com as mãos. Coloque em saco plástico ou
+                  envelope de papel. Anote local, data e tipo de substrato.
+                </p>
+              </div>
+              <div class="step-card">
+                <div class="step-number">3</div>
+                <h4>Hidrate o Material</h4>
+                <p>
+                  Em laboratório, coloque a amostra em recipiente com água
+                  destilada ou filtrada. Aguarde 24h para os tardígrados
+                  reidratarem.
+                </p>
+              </div>
+              <div class="step-card">
+                <div class="step-number">4</div>
+                <h4>Extraia os Tardígrados</h4>
+                <p>
+                  Agite o material na água. Passe por peneira fina (malha 40-60
+                  µm). Observe o filtrado em lupa ou microscópio.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Como Fotografar Section (Hidden by default) -->
+          <div id="photo-section" class="content-panel" style="display: none">
+            <button class="btn-back" onclick="hideAllSections()">
+              <i class="fas fa-arrow-left"></i> Voltar
+            </button>
+
+            <h3><i class="fas fa-camera"></i> Como Fotografar Tardígrados</h3>
+            <div class="photo-grid">
+              <div class="photo-tip">
+                <i class="fas fa-microscope"></i>
+                <h4>Equipamento</h4>
+                <p>
+                  Use microscópio com aumento de 100x a 400x. Câmera acoplada ao
+                  microscópio ou smartphone com adaptador.
+                </p>
+              </div>
+              <div class="photo-tip">
+                <i class="fas fa-sun"></i>
+                <h4>Iluminação</h4>
+                <p>
+                  Luz transmitida (de baixo) é ideal. Ajuste a intensidade para
+                  evitar queimar a imagem. Use contraste de fase se disponível.
+                </p>
+              </div>
+              <div class="photo-tip">
+                <i class="fas fa-compress-arrows-alt"></i>
+                <h4>Foco</h4>
+                <p>
+                  Foco preciso é essencial. Tire várias fotos em diferentes
+                  planos focais. Use Z-stacking se possível.
+                </p>
+              </div>
+              <div class="photo-tip">
+                <i class="fas fa-ruler"></i>
+                <h4>Escala</h4>
+                <p>
+                  Inclua barra de escala na imagem. Registre o aumento
+                  utilizado. Isso é crucial para medições posteriores.
+                </p>
+              </div>
+              <div class="photo-tip">
+                <i class="fas fa-eye"></i>
+                <h4>Estruturas-Chave</h4>
+                <p>
+                  Fotografe: vista dorsal, ventral, lateral, garras, faringe
+                  (macroplacóides), placas (se houver).
+                </p>
+              </div>
+              <div class="photo-tip">
+                <i class="fas fa-save"></i>
+                <h4>Armazenamento</h4>
+                <p>
+                  Salve em alta resolução (TIFF ou PNG). Mantenha backup.
+                  Organize por data e localidade.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Anatomia Section (Hidden by default) -->
+          <div id="anatomy-section" class="content-panel" style="display: none">
+            <button class="btn-back" onclick="hideAllSections()">
+              <i class="fas fa-arrow-left"></i> Voltar
+            </button>
+
+            <h3>
+              <i class="fas fa-draw-polygon"></i> Anatomia Básica dos
+              Tardígrados
+            </h3>
+            <div class="anatomy-content">
+              <div class="anatomy-diagram">
+                <div class="diagram-placeholder">
+                  <i
+                    class="fas fa-image"
+                    style="font-size: 64px; color: #ccc"
+                  ></i>
+                  <p style="color: #999; margin-top: 16px">
+                    Diagrama de anatomia<br />(vista dorsal e lateral)
+                  </p>
+                </div>
+              </div>
+              <div class="anatomy-description">
+                <h4>Principais Estruturas:</h4>
+                <ul class="anatomy-list">
+                  <li>
+                    <strong>Cabeça:</strong> Contém boca com estiletes ou
+                    aparelho sugador, olhos (quando presentes), cirros
+                    sensoriais
+                  </li>
+                  <li>
+                    <strong>Tronco:</strong> Dividido em 4 segmentos, cada um
+                    com 1 par de pernas (total 8 pernas)
+                  </li>
+                  <li>
+                    <strong>Pernas:</strong> Terminam em garras ou dígitos,
+                    número varia (2-4 garras por perna)
+                  </li>
+                  <li>
+                    <strong>Faringe:</strong> Tubo muscular, contém
+                    macroplacóides e microplacóide (placas de suporte)
+                  </li>
+                  <li>
+                    <strong>Cutícula:</strong> Revestimento externo, pode ter
+                    poros, pápulas, placas ou espinhos
+                  </li>
+                  <li>
+                    <strong>Sistema Digestivo:</strong> Boca → faringe →
+                    intestino → ânus (no último par de pernas)
+                  </li>
+                  <li>
+                    <strong>Gônadas:</strong> Órgãos reprodutores, variam entre
+                    machos e fêmeas
+                  </li>
+                  <li>
+                    <strong>Tamanho:</strong> 0,1 a 1,5 mm de comprimento
+                    (maioria 0,3-0,5 mm)
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cadastrar Achados Section (Hidden by default) -->
+          <div
+            id="register-section"
+            class="content-panel"
+            style="display: none"
+          >
+            <button class="btn-back" onclick="hideAllSections()">
+              <i class="fas fa-arrow-left"></i> Voltar
+            </button>
+
+            <h3><i class="fas fa-plus-circle"></i> Cadastrar Seus Achados</h3>
+            <div class="register-info">
+              <div class="info-card">
+                <i class="fas fa-info-circle"></i>
+                <p>
+                  Encontrou um tardígrado? Registre sua descoberta! As
+                  informações coletadas contribuem para o conhecimento
+                  científico sobre a distribuição desses organismos.
+                </p>
+              </div>
+
+              <form class="register-form" id="register-form">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="genero"
+                      ><i class="fas fa-dna"></i> Gênero Identificado *</label
+                    >
+                    <input
+                      type="text"
+                      id="genero"
+                      required
+                      placeholder="Ex: Macrobiotus, Hypsibius..."
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="especie"
+                      ><i class="fas fa-microscope"></i> Espécie (se
+                      souber)</label
+                    >
+                    <input
+                      type="text"
+                      id="especie"
+                      placeholder="Ex: hufelandi, dujardini..."
+                    />
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="localidade"
+                      ><i class="fas fa-map-marker-alt"></i> Localidade *</label
+                    >
+                    <input
+                      type="text"
+                      id="localidade"
+                      required
+                      placeholder="Cidade, Estado, País"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="habitat"
+                      ><i class="fas fa-leaf"></i> Habitat *</label
+                    >
+                    <input
+                      type="text"
+                      id="habitat"
+                      required
+                      placeholder="Ex: Musgo urbano, Líquen de árvore..."
+                    />
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="latitude"
+                      ><i class="fas fa-compass"></i> Latitude</label
+                    >
+                    <input
+                      type="number"
+                      id="latitude"
+                      step="0.000001"
+                      placeholder="-23.550520"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="longitude"
+                      ><i class="fas fa-compass"></i> Longitude</label
+                    >
+                    <input
+                      type="number"
+                      id="longitude"
+                      step="0.000001"
+                      placeholder="-46.633308"
+                    />
+                    <button
+                      type="button"
+                      class="btn-gps"
+                      onclick="getGPSLocation()"
+                    >
+                      <i class="fas fa-location-arrow"></i> GPS
+                    </button>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="pesquisador"
+                      ><i class="fas fa-user"></i> Seu Nome *</label
+                    >
+                    <input
+                      type="text"
+                      id="pesquisador"
+                      required
+                      placeholder="Seu nome completo"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="instituicao"
+                      ><i class="fas fa-building"></i> Instituição</label
+                    >
+                    <input
+                      type="text"
+                      id="instituicao"
+                      placeholder="Escola, Universidade..."
+                    />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="observacoes"
+                    ><i class="fas fa-comment"></i> Observações</label
+                  >
+                  <textarea
+                    id="observacoes"
+                    rows="3"
+                    placeholder="Informações adicionais sobre a coleta, comportamento observado, etc."
+                  ></textarea>
+                </div>
+
+                <div class="form-actions">
+                  <button type="submit" class="btn-submit">
+                    <i class="fas fa-save"></i> Salvar Registro
+                  </button>
+                  <button type="reset" class="btn-reset">
+                    <i class="fas fa-eraser"></i> Limpar Formulário
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <p>
+          &copy; 2025 TardiStudy - Portal Educativo Especializado em Tardigrada
+        </p>
+        <p class="footer-credit">
+          Desenvolvido pelo <strong>Projeto PUNE</strong> em parceria com LEOM -
+          UNICAMP
+        </p>
+      </div>
+    </footer>
+
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Voltar ao topo">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/identificacao.js"></script>
+  </body>
+</html>

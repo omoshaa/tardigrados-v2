@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#2e7d32" />
+    <title>Projeto PUNE | TardiStudy</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="../css/projeto-pune.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="icon" type="image/png" href="../assets/tardigrade-icon.png" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header>
+      <nav class="navbar">
+        <div class="logo">
+          <img
+            src="../assets/tardigrade-icon.png"
+            alt="TardiStudy Logo"
+            class="logo-img"
+          />
+          <span>TardiStudy</span>
+        </div>
+
+        <div class="nav-links desktop-nav">
+          <a href="home.html" class="nav-item">Início</a>
+          <a href="mapa.html" class="nav-item">Mapa</a>
+          <a href="identificacao.html" class="nav-item">Identificação</a>
+          <a href="sobre-tardigrados.html" class="nav-item"
+            >Sobre Tardígrados</a
+          >
+          <a href="projeto-pune.html" class="nav-item active">Projeto PUNE</a>
+        </div>
+
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </nav>
+
+      <!-- Menu Mobile -->
+      <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-content">
+          <button
+            class="mobile-nav-close"
+            id="closeMenuBtn"
+            aria-label="Fechar menu"
+          >
+            <i class="fas fa-times"></i>
+          </button>
+          <nav class="mobile-nav-links">
+            <a href="home.html" class="mobile-nav-item">
+              <i class="fas fa-home"></i>
+              <span>Início</span>
+            </a>
+            <a href="mapa.html" class="mobile-nav-item">
+              <i class="fas fa-map"></i>
+              <span>Mapa de Tardigrada</span>
+            </a>
+            <a href="identificacao.html" class="mobile-nav-item">
+              <i class="fas fa-search"></i>
+              <span>Identificação</span>
+            </a>
+            <a href="sobre-tardigrados.html" class="mobile-nav-item">
+              <i class="fas fa-microscope"></i>
+              <span>Sobre Tardígrados</span>
+            </a>
+            <a href="projeto-pune.html" class="mobile-nav-item">
+              <i class="fas fa-info-circle"></i>
+              <span>Projeto PUNE</span>
+            </a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <section class="page-header">
+        <div class="container">
+          <h1>🎓 Projeto PUNE</h1>
+          <p class="page-subtitle">Projeto Urso Na Escola</p>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <div class="container">
+          <!-- Hero Section -->
+          <div class="hero-card">
+            <div class="hero-emoji">🎓</div>
+            <h2>O que é o PUNE?</h2>
+            <p>
+              O <strong>PUNE (Projeto Urso Na Escola)</strong> é uma iniciativa
+              educacional inovadora que utiliza os tardígrados - conhecidos como
+              "ursos d'água" - como modelo para integrar o ensino de biologia
+              com a tecnologia. O projeto promove a ciência cidadã, permitindo
+              que estudantes e professores contribuam ativamente para o
+              conhecimento científico sobre esses fascinantes microorganismos.
+            </p>
+          </div>
+
+          <!-- Objetivos -->
+          <h2 class="section-heading">
+            <i class="fas fa-bullseye"></i> Objetivos do Projeto
+          </h2>
+          <div class="objectives-grid">
+            <div class="objective-card">
+              <i class="fas fa-book-open"></i>
+              <p>
+                Democratizar o acesso ao conhecimento sobre Tardigrada através
+                de ferramentas digitais acessíveis
+              </p>
+            </div>
+            <div class="objective-card">
+              <i class="fas fa-laptop-code"></i>
+              <p>
+                Criar uma plataforma interativa para identificação e catalogação
+                de tardígrados
+              </p>
+            </div>
+            <div class="objective-card">
+              <i class="fas fa-users"></i>
+              <p>
+                Promover a colaboração científica entre estudantes, professores
+                e pesquisadores
+              </p>
+            </div>
+            <div class="objective-card">
+              <i class="fas fa-database"></i>
+              <p>
+                Desenvolver um banco de dados sobre a diversidade e distribuição
+                de Tardigrada no Brasil
+              </p>
+            </div>
+            <div class="objective-card">
+              <i class="fas fa-network-wired"></i>
+              <p>
+                Formar uma rede de colaboração científica envolvendo escolas,
+                universidades e pesquisadores
+              </p>
+            </div>
+            <div class="objective-card">
+              <i class="fas fa-microscope"></i>
+              <p>
+                Contribuir para o avanço do conhecimento sobre os organismos
+                mais resistentes do planeta
+              </p>
+            </div>
+          </div>
+
+          <!-- Equipe -->
+          <h2 class="section-heading">
+            <i class="fas fa-users"></i> Equipe do Projeto
+          </h2>
+          <div class="team-grid">
+            <div class="team-card">
+              <div class="team-icon"><i class="fas fa-user-tie"></i></div>
+              <h3>Coordenador do Projeto</h3>
+              <p class="team-name">Prof. Danilo de Castro Santos</p>
+              <p class="team-role">Mestrando - UNICAMP</p>
+              <p class="team-dept">Departamento de Biologia Animal</p>
+              <div class="team-social">
+                <a
+                  href="https://instagram.com/ursonaescola"
+                  target="_blank"
+                  rel="noopener"
+                  title="Instagram do Projeto"
+                >
+                  <i class="fab fa-instagram"></i> @ursonaescola
+                </a>
+              </div>
+            </div>
+
+            <div class="team-card">
+              <div class="team-icon"><i class="fas fa-code"></i></div>
+              <h3>Desenvolvedor</h3>
+              <p class="team-name">Moisés Filipe Telis de Lima</p>
+              <p class="team-role">Desenvolvedor Full Stack</p>
+              <p class="team-dept">Aluno do Ensino Médio & Programador</p>
+              <div class="team-social">
+                <a
+                  href="https://github.com/omoshaa"
+                  target="_blank"
+                  rel="noopener"
+                  title="GitHub"
+                >
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+
+            <div class="team-card featured-card">
+              <div class="team-icon"><i class="fas fa-university"></i></div>
+              <h3>Parceria & Consultoria Científica</h3>
+              <p class="team-name">LEOM - UNICAMP</p>
+              <p class="team-role">
+                Laboratório de Evolução de Organismos Meiofaunais
+              </p>
+              <p class="team-dept">Universidade Estadual de Campinas</p>
+              <p class="team-consultant">
+                <strong>Consultor:</strong> Prof. Dr. André Reinaldo Senna
+                Garraffoni
+              </p>
+              <div class="team-social">
+                <a
+                  href="https://leom.ib.unicamp.br"
+                  target="_blank"
+                  rel="noopener"
+                  title="Site do LEOM"
+                >
+                  <i class="fas fa-globe"></i> Site LEOM
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Integrantes PUNE -->
+          <h2 class="section-heading">
+            <i class="fas fa-graduation-cap"></i> Integrantes do PUNE
+          </h2>
+          <p class="pune-intro">
+            Jovens estudantes do ensino médio explorando o fascinante mundo dos
+            tardígrados através da ciência e tecnologia
+          </p>
+
+          <div class="students-grid">
+            <div class="student-card">
+              <div class="student-icon">
+                <i class="fas fa-user-graduate"></i>
+              </div>
+              <p class="student-name">Gabriel Paschoa Ranuzia Marciel</p>
+              <p class="student-role">Aluno do Ensino Médio</p>
+              <p class="student-school">EE Prof. Aprígio Gonzaga - SP</p>
+            </div>
+
+            <div class="student-card">
+              <div class="student-icon">
+                <i class="fas fa-user-graduate"></i>
+              </div>
+              <p class="student-name">
+                Giovanna Emanuelle da Silva Masson Bassanin
+              </p>
+              <p class="student-role">Aluna do Ensino Médio</p>
+              <p class="student-school">EE Prof. Aprígio Gonzaga - SP</p>
+            </div>
+
+            <div class="student-card">
+              <div class="student-icon">
+                <i class="fas fa-user-graduate"></i>
+              </div>
+              <p class="student-name">Davi Bernardes Soldeira</p>
+              <p class="student-role">Aluno do Ensino Médio</p>
+              <p class="student-school">EE Prof. Aprígio Gonzaga - SP</p>
+            </div>
+
+            <div class="student-card">
+              <div class="student-icon">
+                <i class="fas fa-user-graduate"></i>
+              </div>
+              <p class="student-name">Daniel Mizael Spagiari de Souza</p>
+              <p class="student-role">Aluno do Ensino Médio</p>
+              <p class="student-school">EE Julio de Mesquita - Campinas</p>
+            </div>
+
+            <div class="student-card">
+              <div class="student-icon">
+                <i class="fas fa-user-graduate"></i>
+              </div>
+              <p class="student-name">Sophia Clemente Marcelino</p>
+              <p class="student-role">Aluna do Ensino Médio</p>
+              <p class="student-school">EE Maria de Lourdes - Campinas</p>
+            </div>
+
+            <div class="student-card">
+              <div class="student-icon">
+                <i class="fas fa-user-graduate"></i>
+              </div>
+              <p class="student-name">Ana Lívia Rodrigues</p>
+              <p class="student-role">Aluna do Ensino Médio</p>
+              <p class="student-school">EE Maria de Lourdes - Campinas</p>
+            </div>
+
+            <div class="student-card highlighted-card">
+              <div class="student-icon"><i class="fas fa-code"></i></div>
+              <p class="student-name">Moisés Filipe Telis de Lima</p>
+              <p class="student-role">Aluno do Ensino Médio & Desenvolvedor</p>
+              <p class="student-school">EE Prof. Aprígio Gonzaga - SP</p>
+            </div>
+          </div>
+
+          <!-- Escolas Parceiras -->
+          <h2 class="section-heading">
+            <i class="fas fa-school"></i> Escolas Parceiras
+          </h2>
+          <div class="schools-grid">
+            <div class="school-card">
+              <i class="fas fa-building"></i>
+              <h4>EE Prof. Aprígio Gonzaga</h4>
+              <p>São Paulo - SP</p>
+            </div>
+            <div class="school-card">
+              <i class="fas fa-building"></i>
+              <h4>EE Julio de Mesquita</h4>
+              <p>Campinas - SP</p>
+            </div>
+            <div class="school-card">
+              <i class="fas fa-building"></i>
+              <h4>EE Maria de Lourdes</h4>
+              <p>Campinas - SP</p>
+            </div>
+          </div>
+
+          <!-- Tecnologias -->
+          <h2 class="section-heading">
+            <i class="fas fa-code"></i> Tecnologias Utilizadas
+          </h2>
+          <p class="tech-intro">
+            Ferramentas modernas que tornam este portal interativo e educativo
+          </p>
+          <div class="tech-grid">
+            <div class="tech-card">
+              <i class="fab fa-html5"></i>
+              <span>HTML5</span>
+              <p>Estrutura Semântica</p>
+            </div>
+            <div class="tech-card">
+              <i class="fab fa-css3-alt"></i>
+              <span>CSS3</span>
+              <p>Design Responsivo</p>
+            </div>
+            <div class="tech-card">
+              <i class="fab fa-js"></i>
+              <span>JavaScript</span>
+              <p>Interatividade</p>
+            </div>
+            <div class="tech-card">
+              <i class="fas fa-map"></i>
+              <span>Leaflet.js</span>
+              <p>Mapas Interativos</p>
+            </div>
+          </div>
+
+          <!-- Contato -->
+          <div class="contact-section">
+            <h2 class="section-heading">
+              <i class="fas fa-envelope"></i> Entre em Contato
+            </h2>
+            <p class="contact-intro">
+              Tem dúvidas sobre tardígrados? Quer participar do projeto?<br />
+              Entre em contato conosco! Estamos sempre abertos a colaborações e
+              novos pesquisadores.
+            </p>
+            <div class="contact-cards">
+              <div class="contact-card">
+                <i class="fas fa-envelope"></i>
+                <h4>E-mail</h4>
+                <p>danilocastros@prof.educacao.sp.gov.br</p>
+              </div>
+              <div class="contact-card">
+                <i class="fab fa-instagram"></i>
+                <h4>Instagram</h4>
+                <p>
+                  <a
+                    href="https://instagram.com/ursonaescola"
+                    target="_blank"
+                    rel="noopener"
+                    >@ursonaescola</a
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <p>
+          &copy; 2025 TardiStudy - Portal Educativo Especializado em Tardigrada
+        </p>
+        <p class="footer-credit">
+          Desenvolvido pelo <strong>Projeto PUNE</strong> em parceria com LEOM -
+          UNICAMP
+        </p>
+      </div>
+    </footer>
+
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Voltar ao topo">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="../js/main.js"></script>
+  </body>
+</html>
