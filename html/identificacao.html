@@ -122,22 +122,7 @@
               </button>
             </div>
 
-            <!-- Card 3: Guia de Estruturas -->
-            <div class="tool-card">
-              <div class="tool-icon">
-                <i class="fas fa-book"></i>
-              </div>
-              <h3>Guia de Estruturas</h3>
-              <p>Glossário visual da anatomia</p>
-              <button
-                class="btn-tool"
-                onclick="showSection('morphology-section')"
-              >
-                Ver Guia
-              </button>
-            </div>
-
-            <!-- Card 4: Como Coletar -->
+            <!-- Card 3: Como Coletar -->
             <div class="tool-card">
               <div class="tool-icon">
                 <i class="fas fa-vial"></i>
@@ -149,7 +134,7 @@
               </button>
             </div>
 
-            <!-- Card 5: Como Fotografar -->
+            <!-- Card 4: Como Fotografar -->
             <div class="tool-card">
               <div class="tool-icon">
                 <i class="fas fa-camera"></i>
@@ -161,13 +146,13 @@
               </button>
             </div>
 
-            <!-- Card 6: Anatomia -->
+            <!-- Card 5: Anatomia e Estruturas -->
             <div class="tool-card">
               <div class="tool-icon">
                 <i class="fas fa-draw-polygon"></i>
               </div>
-              <h3>Anatomia</h3>
-              <p>Manuais de anatomia detalhada</p>
+              <h3>Anatomia e Estruturas</h3>
+              <p>Guia completo de anatomia e morfologia</p>
               <button class="btn-tool" onclick="showSection('anatomy-section')">
                 Ver Anatomia
               </button>
@@ -236,19 +221,74 @@
             </div>
           </div>
 
-          <!-- Guia de Estruturas Section (Hidden by default) -->
-          <div
-            id="morphology-section"
-            class="content-panel"
-            style="display: none"
-          >
+          <!-- Anatomia e Estruturas Section (Hidden by default) -->
+          <div id="anatomy-section" class="content-panel" style="display: none">
             <button class="btn-back" onclick="hideAllSections()">
               <i class="fas fa-arrow-left"></i> Voltar
             </button>
 
             <h3>
-              <i class="fas fa-shapes"></i> Guia de Estruturas Morfológicas
+              <i class="fas fa-draw-polygon"></i> Anatomia e Estruturas dos
+              Tardígrados
             </h3>
+
+            <!-- Anatomia Básica -->
+            <div class="anatomy-content">
+              <div class="anatomy-diagram">
+                <div class="diagram-placeholder">
+                  <i
+                    class="fas fa-image"
+                    style="font-size: 64px; color: #ccc"
+                  ></i>
+                  <p style="color: #999; margin-top: 16px">
+                    Diagrama de anatomia<br />(vista dorsal e lateral)
+                  </p>
+                </div>
+              </div>
+              <div class="anatomy-description">
+                <h4>Principais Estruturas:</h4>
+                <ul class="anatomy-list">
+                  <li>
+                    <strong>Cabeça:</strong> Contém boca com estiletes ou
+                    aparelho sugador, olhos (quando presentes), cirros
+                    sensoriais
+                  </li>
+                  <li>
+                    <strong>Tronco:</strong> Dividido em 4 segmentos, cada um
+                    com 1 par de pernas (total 8 pernas)
+                  </li>
+                  <li>
+                    <strong>Pernas:</strong> Terminam em garras ou dígitos,
+                    número varia (2-4 garras por perna)
+                  </li>
+                  <li>
+                    <strong>Faringe:</strong> Tubo muscular, contém
+                    macroplacóides e microplacóide (placas de suporte)
+                  </li>
+                  <li>
+                    <strong>Cutícula:</strong> Revestimento externo, pode ter
+                    poros, pápulas, placas ou espinhos
+                  </li>
+                  <li>
+                    <strong>Sistema Digestivo:</strong> Boca → faringe →
+                    intestino → ânus (no último par de pernas)
+                  </li>
+                  <li>
+                    <strong>Gônadas:</strong> Órgãos reprodutores, variam entre
+                    machos e fêmeas
+                  </li>
+                  <li>
+                    <strong>Tamanho:</strong> 0,1 a 1,5 mm de comprimento
+                    (maioria 0,3-0,5 mm)
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Estruturas Morfológicas -->
+            <h4 style="margin-top: 40px; margin-bottom: 20px">
+              <i class="fas fa-shapes"></i> Guia de Estruturas Morfológicas
+            </h4>
             <div class="morphology-grid">
               <div class="morphology-card">
                 <img
@@ -268,7 +308,7 @@
                   src="../assets/fig7.png"
                   alt="Macroplacóides"
                   class="morphology-image"
-                  onerror="this.parentElement.innerHTML='<div class=\'morphology-icon\'>🔬</div><h4>Macroplacóides</h4><p>Estruturas na faringe. Conte quantos há (2 ou 3) e observe a forma (haste ou gota) e presença de septo.</p>'"
+                  onerror="this.parentElement.innerHTML='<div class=\'morphology-icon\'>�</div><h4>Macroplacóides</h4><p>Estruturas na faringe. Conte quantos há (2 ou 3) e observe a forma (haste ou gota) e presença de septo.</p>'"
                 />
                 <h4>Macroplacóides</h4>
                 <p>
@@ -362,7 +402,7 @@
                 <h4>Hidrate o Material</h4>
                 <p>
                   Em laboratório, coloque a amostra em recipiente com água
-                  destilada ou filtrada. Aguarde 24h para os tardígrados
+                  destilada ou filtrada. Aguarde 20 minutos para os tardígrados
                   reidratarem.
                 </p>
               </div>
@@ -389,8 +429,8 @@
                 <i class="fas fa-microscope"></i>
                 <h4>Equipamento</h4>
                 <p>
-                  Use microscópio com aumento de 100x a 400x. Câmera acoplada ao
-                  microscópio ou smartphone com adaptador.
+                  Use microscópio com aumento de 10x a 40x (objetivas). Câmera
+                  acoplada ao microscópio ou smartphone com adaptador.
                 </p>
               </div>
               <div class="photo-tip">
@@ -432,69 +472,6 @@
                   Salve em alta resolução (TIFF ou PNG). Mantenha backup.
                   Organize por data e localidade.
                 </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Anatomia Section (Hidden by default) -->
-          <div id="anatomy-section" class="content-panel" style="display: none">
-            <button class="btn-back" onclick="hideAllSections()">
-              <i class="fas fa-arrow-left"></i> Voltar
-            </button>
-
-            <h3>
-              <i class="fas fa-draw-polygon"></i> Anatomia Básica dos
-              Tardígrados
-            </h3>
-            <div class="anatomy-content">
-              <div class="anatomy-diagram">
-                <div class="diagram-placeholder">
-                  <i
-                    class="fas fa-image"
-                    style="font-size: 64px; color: #ccc"
-                  ></i>
-                  <p style="color: #999; margin-top: 16px">
-                    Diagrama de anatomia<br />(vista dorsal e lateral)
-                  </p>
-                </div>
-              </div>
-              <div class="anatomy-description">
-                <h4>Principais Estruturas:</h4>
-                <ul class="anatomy-list">
-                  <li>
-                    <strong>Cabeça:</strong> Contém boca com estiletes ou
-                    aparelho sugador, olhos (quando presentes), cirros
-                    sensoriais
-                  </li>
-                  <li>
-                    <strong>Tronco:</strong> Dividido em 4 segmentos, cada um
-                    com 1 par de pernas (total 8 pernas)
-                  </li>
-                  <li>
-                    <strong>Pernas:</strong> Terminam em garras ou dígitos,
-                    número varia (2-4 garras por perna)
-                  </li>
-                  <li>
-                    <strong>Faringe:</strong> Tubo muscular, contém
-                    macroplacóides e microplacóide (placas de suporte)
-                  </li>
-                  <li>
-                    <strong>Cutícula:</strong> Revestimento externo, pode ter
-                    poros, pápulas, placas ou espinhos
-                  </li>
-                  <li>
-                    <strong>Sistema Digestivo:</strong> Boca → faringe →
-                    intestino → ânus (no último par de pernas)
-                  </li>
-                  <li>
-                    <strong>Gônadas:</strong> Órgãos reprodutores, variam entre
-                    machos e fêmeas
-                  </li>
-                  <li>
-                    <strong>Tamanho:</strong> 0,1 a 1,5 mm de comprimento
-                    (maioria 0,3-0,5 mm)
-                  </li>
-                </ul>
               </div>
             </div>
           </div>
