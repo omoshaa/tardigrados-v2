@@ -2,19 +2,66 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"
+    />
     <meta name="theme-color" content="#2e7d32" />
     <title>Projeto PUNE | TardiStudy</title>
+    <meta
+      name="description"
+      content="Conheça o Projeto Urso Na Escola (PUNE): objetivos, equipe e parceria com o LEOM/UNICAMP para educação e ciência cidadã em Tardigrada."
+    />
+
+    <meta name="color-scheme" content="light" />
+
+    <!-- Open Graph / Twitter (compartilhamento) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="TardiStudy" />
+    <meta property="og:title" content="Projeto PUNE | TardiStudy" />
+    <meta
+      property="og:url"
+      content="https://omoshaa.github.io/tardigrados-v2/html/projeto-pune.html"
+    />
+    <meta
+      property="og:description"
+      content="Conheça o Projeto Urso Na Escola (PUNE): objetivos, equipe e parceria com o LEOM/UNICAMP para educação e ciência cidadã em Tardigrada."
+    />
+    <meta property="og:image" content="../assets/tardigrade-icon-512.png" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Projeto PUNE | TardiStudy" />
+    <meta
+      name="twitter:description"
+      content="Conheça o Projeto Urso Na Escola (PUNE): objetivos, equipe e parceria com o LEOM/UNICAMP para educação e ciência cidadã em Tardigrada."
+    />
+    <meta name="twitter:image" content="../assets/tardigrade-icon-512.png" />
+
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <link rel="stylesheet" href="../css/main.css" />
     <link rel="stylesheet" href="../css/pages.css" />
     <link rel="stylesheet" href="../css/projeto-pune.css" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <link rel="icon" type="image/png" href="../assets/tardigrade-icon.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../assets/tardigrade-icon-192.png"
+    />
+    <link rel="manifest" href="../manifest.json" />
+    <link rel="apple-touch-icon" href="../assets/tardigrade-icon-192.png" />
+    <link
+      rel="canonical"
+      href="https://omoshaa.github.io/tardigrados-v2/html/projeto-pune.html"
+    />
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Pular para o conteúdo</a>
     <!-- Navbar -->
     <header>
       <nav class="navbar">
@@ -23,6 +70,8 @@
             src="../assets/tardigrade-icon.png"
             alt="TardiStudy Logo"
             class="logo-img"
+            width="45"
+            height="45"
           />
           <span>TardiStudy</span>
         </div>
@@ -37,7 +86,14 @@
           <a href="projeto-pune.html" class="nav-item active">Projeto PUNE</a>
         </div>
 
-        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+        <button
+          class="mobile-menu-btn"
+          id="mobileMenuBtn"
+          type="button"
+          aria-label="Abrir menu"
+          aria-controls="mobileNav"
+          aria-expanded="false"
+        >
           <span class="hamburger-line"></span>
           <span class="hamburger-line"></span>
           <span class="hamburger-line"></span>
@@ -45,11 +101,12 @@
       </nav>
 
       <!-- Menu Mobile -->
-      <div class="mobile-nav" id="mobileNav">
+      <div class="mobile-nav" id="mobileNav" aria-hidden="true">
         <div class="mobile-nav-content">
           <button
             class="mobile-nav-close"
             id="closeMenuBtn"
+            type="button"
             aria-label="Fechar menu"
           >
             <i class="fas fa-times"></i>
@@ -81,7 +138,7 @@
     </header>
 
     <!-- Main Content -->
-    <main>
+    <main id="main-content">
       <section class="page-header">
         <div class="container">
           <h1>🎓 Projeto PUNE</h1>
@@ -236,7 +293,9 @@
               </div>
               <p class="student-name">Gabriel Paschoa Ranuzia Marciel</p>
               <p class="student-role">Aluno do Ensino Médio</p>
-              <p class="student-school">EE Prof. Luiz Gonzaga da Costa - Campinas</p>
+              <p class="student-school">
+                EE Prof. Luiz Gonzaga da Costa - Campinas
+              </p>
             </div>
 
             <div class="student-card">
@@ -247,7 +306,9 @@
                 Giovanna Emanuelle da Silva Masson Bassanin
               </p>
               <p class="student-role">Aluna do Ensino Médio</p>
-              <p class="student-school">EE Prof. Luiz Gonzaga da Costa - Campinas</p>
+              <p class="student-school">
+                EE Prof. Luiz Gonzaga da Costa - Campinas
+              </p>
             </div>
 
             <div class="student-card">
@@ -256,7 +317,9 @@
               </div>
               <p class="student-name">Davi Bernardes Soldeira</p>
               <p class="student-role">Aluno do Ensino Médio</p>
-              <p class="student-school">EE Prof. Luiz Gonzaga da Costa - Campinas</p>
+              <p class="student-school">
+                EE Prof. Luiz Gonzaga da Costa - Campinas
+              </p>
             </div>
 
             <div class="student-card">
@@ -265,7 +328,9 @@
               </div>
               <p class="student-name">Daniel Mizael Spagiari de Souza</p>
               <p class="student-role">Aluno do Ensino Médio</p>
-              <p class="student-school">EE Prof. Luiz Gonzaga da Costa - Campinas</p>
+              <p class="student-school">
+                EE Prof. Luiz Gonzaga da Costa - Campinas
+              </p>
             </div>
 
             <div class="student-card">
@@ -274,7 +339,9 @@
               </div>
               <p class="student-name">Sophia Clemente Marcelino</p>
               <p class="student-role">Aluna do Ensino Médio</p>
-              <p class="student-school">EE Prof. Luiz Gonzaga da Costa - Campinas</p>
+              <p class="student-school">
+                EE Prof. Luiz Gonzaga da Costa - Campinas
+              </p>
             </div>
 
             <div class="student-card">
@@ -283,14 +350,18 @@
               </div>
               <p class="student-name">Ana Lívia Rodrigues</p>
               <p class="student-role">Aluna do Ensino Médio</p>
-              <p class="student-school">EE Prof. Luiz Gonzaga da Costa - Campinas</p>
+              <p class="student-school">
+                EE Prof. Luiz Gonzaga da Costa - Campinas
+              </p>
             </div>
 
             <div class="student-card highlighted-card">
               <div class="student-icon"><i class="fas fa-code"></i></div>
               <p class="student-name">Moisés Filipe Telis de Lima</p>
               <p class="student-role">Aluno do Ensino Médio & Desenvolvedor</p>
-              <p class="student-school">EE Prof. Luiz Gonzaga da Costa - Campinas</p>
+              <p class="student-school">
+                EE Prof. Luiz Gonzaga da Costa - Campinas
+              </p>
             </div>
           </div>
 
@@ -396,6 +467,6 @@
       <i class="fas fa-arrow-up"></i>
     </button>
 
-    <script src="../js/main.js"></script>
+    <script src="../js/main.js" defer></script>
   </body>
 </html>

@@ -587,8 +587,8 @@ function showStep(step) {
           `
               : `
             <img src="${
-              option.image || "../assets/tardigrade-photo.jpg"
-            }" onerror="this.onerror=null;this.src='../assets/tardigrade-photo.jpg'" alt="Imagem para ${escapeHtml(
+              option.image || "../assets/tardigrade-icon.png"
+            }" onerror="this.onerror=null;this.src='../assets/tardigrade-icon.png'" alt="Imagem para ${escapeHtml(
                   option.text
                 )}" class="key-option-image">
           `
@@ -626,8 +626,8 @@ function showResult(step) {
       `
           : `
         <img src="${
-          step.image || "../assets/tardigrade-photo.jpg"
-        }" onerror="this.onerror=null;this.src='../assets/tardigrade-photo.jpg'" alt="Imagem de ${escapeHtml(
+          step.image || "../assets/tardigrade-icon.png"
+        }" onerror="this.onerror=null;this.src='../assets/tardigrade-icon.png'" alt="Imagem de ${escapeHtml(
               step.result
             )}" class="result-image">
       `

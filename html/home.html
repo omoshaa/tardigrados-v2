@@ -9,6 +9,7 @@
     <meta name="theme-color" content="#2e7d32" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
 
     <title>TardiStudy | Portal de Estudos de Tardigrada</title>
     <meta
@@ -16,15 +17,50 @@
       content="Portal educativo especializado no estudo de Tardigrada com mapa interativo, cadastro e chaves dicotômicas."
     />
 
+    <meta name="color-scheme" content="light" />
+
+    <!-- Open Graph / Twitter (compartilhamento) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="TardiStudy" />
+    <meta property="og:title" content="TardiStudy" />
+    <meta
+      property="og:url"
+      content="https://omoshaa.github.io/tardigrados-v2/html/home.html"
+    />
+    <meta
+      property="og:description"
+      content="Portal educativo sobre Tardigrada com mapa interativo, identificação e conteúdo científico."
+    />
+    <meta property="og:image" content="../assets/tardigrade-icon-512.png" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="TardiStudy" />
+    <meta
+      name="twitter:description"
+      content="Portal educativo sobre Tardigrada com mapa interativo, identificação e conteúdo científico."
+    />
+    <meta name="twitter:image" content="../assets/tardigrade-icon-512.png" />
+
     <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <link rel="icon" type="image/png" href="../assets/tardigrade-icon.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../assets/tardigrade-icon-192.png"
+    />
     <link rel="manifest" href="../manifest.json" />
+    <link rel="apple-touch-icon" href="../assets/tardigrade-icon-192.png" />
+    <link
+      rel="canonical"
+      href="https://omoshaa.github.io/tardigrados-v2/html/home.html"
+    />
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Pular para o conteúdo</a>
     <!-- Navbar -->
     <header>
       <nav class="navbar">
@@ -33,6 +69,8 @@
             src="../assets/tardigrade-icon.png"
             alt="TardiStudy Logo"
             class="logo-img"
+            width="45"
+            height="45"
           />
           <span>TardiStudy</span>
         </div>
@@ -47,7 +85,14 @@
           <a href="projeto-pune.html" class="nav-item">Projeto PUNE</a>
         </div>
 
-        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+        <button
+          class="mobile-menu-btn"
+          id="mobileMenuBtn"
+          type="button"
+          aria-label="Abrir menu"
+          aria-controls="mobileNav"
+          aria-expanded="false"
+        >
           <span class="hamburger-line"></span>
           <span class="hamburger-line"></span>
           <span class="hamburger-line"></span>
@@ -55,11 +100,12 @@
       </nav>
 
       <!-- Menu Mobile -->
-      <div class="mobile-nav" id="mobileNav">
+      <div class="mobile-nav" id="mobileNav" aria-hidden="true">
         <div class="mobile-nav-content">
           <button
             class="mobile-nav-close"
             id="closeMenuBtn"
+            type="button"
             aria-label="Fechar menu"
           >
             <i class="fas fa-times"></i>
@@ -91,7 +137,7 @@
     </header>
 
     <!-- Main Content -->
-    <main>
+    <main id="main-content">
       <section class="hero-section">
         <div class="hero-background"></div>
         <div class="container hero-content">
@@ -227,6 +273,6 @@
       <i class="fas fa-arrow-up"></i>
     </button>
 
-    <script src="../js/main.js"></script>
+    <script src="../js/main.js" defer></script>
   </body>
 </html>

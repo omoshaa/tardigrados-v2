@@ -2,12 +2,48 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"
+    />
     <meta name="theme-color" content="#2e7d32" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <title>Mapa de Tardigrada | TardiStudy</title>
+    <meta
+      name="description"
+      content="Mapa interativo para visualizar a distribuição geográfica de registros de tardígrados e explorar filtros taxonômicos."
+    />
+
+    <meta name="color-scheme" content="light" />
+
+    <!-- Open Graph / Twitter (compartilhamento) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="TardiStudy" />
+    <meta property="og:title" content="Mapa de Tardigrada | TardiStudy" />
+    <meta
+      property="og:url"
+      content="https://omoshaa.github.io/tardigrados-v2/html/mapa.html"
+    />
+    <meta
+      property="og:description"
+      content="Mapa interativo para explorar registros de tardígrados com filtros e tabela detalhada."
+    />
+    <meta property="og:image" content="../assets/tardigrade-icon-512.png" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Mapa de Tardigrada | TardiStudy" />
+    <meta
+      name="twitter:description"
+      content="Mapa interativo para explorar registros de tardígrados com filtros e tabela detalhada."
+    />
+    <meta name="twitter:image" content="../assets/tardigrade-icon-512.png" />
     <link rel="stylesheet" href="../css/main.css" />
     <link rel="stylesheet" href="../css/pages.css" />
     <link rel="stylesheet" href="../css/mapa.css" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <link rel="preconnect" href="https://unpkg.com" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -16,9 +52,28 @@
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     />
-    <link rel="icon" type="image/png" href="../assets/tardigrade-icon.png" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../assets/tardigrade-icon-192.png"
+    />
+    <link rel="manifest" href="../manifest.json" />
+    <link rel="apple-touch-icon" href="../assets/tardigrade-icon-192.png" />
+    <link
+      rel="canonical"
+      href="https://omoshaa.github.io/tardigrados-v2/html/mapa.html"
+    />
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Pular para o conteúdo</a>
     <!-- Navbar -->
     <header>
       <nav class="navbar">
@@ -27,6 +82,8 @@
             src="../assets/tardigrade-icon.png"
             alt="TardiStudy Logo"
             class="logo-img"
+            width="45"
+            height="45"
           />
           <span>TardiStudy</span>
         </div>
@@ -41,7 +98,14 @@
           <a href="projeto-pune.html" class="nav-item">Projeto PUNE</a>
         </div>
 
-        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+        <button
+          class="mobile-menu-btn"
+          id="mobileMenuBtn"
+          type="button"
+          aria-label="Abrir menu"
+          aria-controls="mobileNav"
+          aria-expanded="false"
+        >
           <span class="hamburger-line"></span>
           <span class="hamburger-line"></span>
           <span class="hamburger-line"></span>
@@ -49,11 +113,12 @@
       </nav>
 
       <!-- Menu Mobile -->
-      <div class="mobile-nav" id="mobileNav">
+      <div class="mobile-nav" id="mobileNav" aria-hidden="true">
         <div class="mobile-nav-content">
           <button
             class="mobile-nav-close"
             id="closeMenuBtn"
+            type="button"
             aria-label="Fechar menu"
           >
             <i class="fas fa-times"></i>
@@ -85,7 +150,7 @@
     </header>
 
     <!-- Main Content -->
-    <main>
+    <main id="main-content">
       <section class="page-header">
         <div class="container">
           <h1>🗺️ Mapa de Tardigrada</h1>
@@ -158,6 +223,17 @@
                 </select>
               </div>
               <div class="filter-group">
+                <label for="localidade-filter"
+                  ><i class="fas fa-location-dot"></i> Buscar localidade</label
+                >
+                <input
+                  id="localidade-filter"
+                  type="search"
+                  placeholder="Ex: Campinas, SP"
+                  autocomplete="off"
+                />
+              </div>
+              <div class="filter-group">
                 <button id="reset-filters" class="btn-reset">
                   <i class="fas fa-redo"></i> Limpar Filtros
                 </button>
@@ -215,8 +291,15 @@
       <i class="fas fa-arrow-up"></i>
     </button>
 
-    <script src="../js/main.js"></script>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="../js/mapa.js"></script>
+    <script src="../js/main.js" defer></script>
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      defer
+    ></script>
+    <script
+      src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"
+      defer
+    ></script>
+    <script src="../js/mapa.js" defer></script>
   </body>
 </html>

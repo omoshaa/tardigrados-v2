@@ -4,9 +4,27 @@
 // ===================================
 
 document.addEventListener("DOMContentLoaded", function () {
-  createParticles();
-  initAnimations();
+  registerServiceWorker();
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  if (!prefersReducedMotion) {
+    createParticles();
+  }
+
+  initAnimations({ prefersReducedMotion });
 });
+
+function registerServiceWorker() {
+  if (!("serviceWorker" in navigator)) return;
+
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js").catch(() => {
+      // Silencioso
+    });
+  });
+}
 
 // Criar partículas de fundo animadas
 function createParticles() {
@@ -37,7 +55,7 @@ function createParticles() {
 }
 
 // Inicializar animações extras
-function initAnimations() {
+function initAnimations({ prefersReducedMotion } = {}) {
   // Efeito de hover no logo
   const logoCircle = document.querySelector(".logo-circle");
   if (logoCircle) {
@@ -51,14 +69,16 @@ function initAnimations() {
   }
 
   // Efeito parallax suave no movimento do mouse
-  document.addEventListener("mousemove", function (e) {
-    const floatingTardigrade = document.querySelector(".floating-tardigrade");
-    if (floatingTardigrade) {
-      const moveX = (e.clientX - window.innerWidth / 2) / 50;
-      const moveY = (e.clientY - window.innerHeight / 2) / 50;
-      floatingTardigrade.style.transform = `translate(${moveX}px, ${moveY}px)`;
-    }
-  });
+  if (!prefersReducedMotion) {
+    document.addEventListener("mousemove", function (e) {
+      const floatingTardigrade = document.querySelector(".floating-tardigrade");
+      if (floatingTardigrade) {
+        const moveX = (e.clientX - window.innerWidth / 2) / 50;
+        const moveY = (e.clientY - window.innerHeight / 2) / 50;
+        floatingTardigrade.style.transform = `translate(${moveX}px, ${moveY}px)`;
+      }
+    });
+  }
 
   // Adicionar efeito de ripple ao clicar no botão
   const enterButton = document.querySelector(".enter-button");

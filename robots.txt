@@ -1,0 +1,10 @@
+# robots.txt
+# Site estático educacional — liberar indexação.
+User-agent: *
+Allow: /
+
+# Dica: quando você tiver uma URL final de deploy, você pode adicionar:
+# Sitemap: https://SEU-DOMINIO/sitemap.xml
+
+# Sitemap
+Sitemap: https://omoshaa.github.io/tardigrados-v2/sitemap.xml

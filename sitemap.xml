@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  IMPORTANTE:
+  - Sitemaps funcionam melhor com URLs absolutas.
+  - Substitua BASE_URL abaixo pelo URL final do seu site (ex.: https://usuario.github.io/tardigrados-v2/).
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://omoshaa.github.io/tardigrados-v2/index.html</loc>
+  </url>
+  <url>
+    <loc>https://omoshaa.github.io/tardigrados-v2/html/home.html</loc>
+  </url>
+  <url>
+    <loc>https://omoshaa.github.io/tardigrados-v2/html/mapa.html</loc>
+  </url>
+  <url>
+    <loc>https://omoshaa.github.io/tardigrados-v2/html/identificacao.html</loc>
+  </url>
+  <url>
+    <loc>https://omoshaa.github.io/tardigrados-v2/html/sobre-tardigrados.html</loc>
+  </url>
+  <url>
+    <loc>https://omoshaa.github.io/tardigrados-v2/html/projeto-pune.html</loc>
+  </url>
+</urlset>

@@ -310,6 +310,8 @@ const SAMPLE_DATA = [
 let tardiRecords = [];
 let map;
 let markersLayer;
+let localidadeSearchTimer;
+let markersById = new Map();
 
 // Inicialização
 document.addEventListener("DOMContentLoaded", function () {
@@ -341,8 +343,19 @@ function initMap() {
       '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
   }).addTo(map);
 
-  // Cria camada de marcadores
-  markersLayer = L.layerGroup().addTo(map);
+  // Cria camada de marcadores (com cluster quando disponível)
+  const canCluster = typeof L.markerClusterGroup === "function";
+  markersLayer = canCluster
+    ? L.markerClusterGroup({
+        showCoverageOnHover: false,
+        spiderfyOnMaxZoom: true,
+        maxClusterRadius: 50,
+      })
+    : L.layerGroup();
+
+  markersLayer.addTo(map);
+
+  addMapLegend();
 
   // Adiciona marcadores iniciais
   addMarkers();
@@ -351,6 +364,7 @@ function initMap() {
 // Adiciona marcadores ao mapa
 function addMarkers() {
   markersLayer.clearLayers();
+  markersById = new Map();
 
   const filteredRecords = getFilteredRecords();
 
@@ -371,6 +385,9 @@ function addMarkers() {
     const marker = L.marker([record.latitude, record.longitude], {
       icon: markerIcon,
     });
+
+    // Guarda para interação (tabela -> mapa)
+    markersById.set(String(record.id), marker);
 
     // Cria popup
     const popupContent = `
@@ -412,6 +429,38 @@ function addMarkers() {
   });
 }
 
+function addMapLegend() {
+  if (!map) return;
+
+  const legend = L.control({ position: "bottomright" });
+
+  legend.onAdd = function () {
+    const div = L.DomUtil.create("div", "map-legend");
+    div.innerHTML = `
+      <h4><i class="fas fa-layer-group"></i> Legenda</h4>
+      <div class="legend-row">
+        <span class="legend-dot" style="background: #2e7d32"></span>
+        <span>Eutardigrada</span>
+      </div>
+      <div class="legend-row">
+        <span class="legend-dot" style="background: #ff6f00"></span>
+        <span>Heterotardigrada</span>
+      </div>
+      <div class="legend-hint">
+        Marcadores próximos podem aparecer agrupados (cluster).
+      </div>
+    `;
+
+    // Evita que clique/scroll na legenda interfira no mapa
+    L.DomEvent.disableClickPropagation(div);
+    L.DomEvent.disableScrollPropagation(div);
+
+    return div;
+  };
+
+  legend.addTo(map);
+}
+
 // Popula os filtros
 function populateFilters() {
   const grupoFilter = document.getElementById("grupo-filter");
@@ -451,12 +500,21 @@ function getFilteredRecords() {
   const grupoFilter = document.getElementById("grupo-filter")?.value;
   const ordemFilter = document.getElementById("ordem-filter")?.value;
   const generoFilter = document.getElementById("genero-filter")?.value;
+  const localidadeFilter = (
+    document.getElementById("localidade-filter")?.value || ""
+  )
+    .trim()
+    .toLowerCase();
 
   return tardiRecords.filter((record) => {
     const grupoMatch = !grupoFilter || record.classe === grupoFilter;
     const ordemMatch = !ordemFilter || record.ordem === ordemFilter;
     const generoMatch = !generoFilter || record.genero === generoFilter;
-    return grupoMatch && ordemMatch && generoMatch;
+    const localidadeMatch =
+      !localidadeFilter ||
+      (record.localidade || "").toLowerCase().includes(localidadeFilter);
+
+    return grupoMatch && ordemMatch && generoMatch && localidadeMatch;
   });
 }
 
@@ -502,6 +560,15 @@ function renderRecordsTable() {
 
   records.forEach((record) => {
     const row = document.createElement("tr");
+    row.dataset.recordId = String(record.id);
+    row.tabIndex = 0;
+    row.setAttribute(
+      "aria-label",
+      `Ver no mapa: ${record.genero} ${record.especie || "sp."} em ${
+        record.localidade
+      }`
+    );
+
     row.innerHTML = `
       <td>${record.classe}</td>
       <td>${record.ordem}</td>
@@ -514,8 +581,45 @@ function renderRecordsTable() {
       <td>${record.instituicao || "N/A"}</td>
       <td>${formatDate(record.data)}</td>
     `;
+
+    row.addEventListener("click", () => focusRecordOnMap(record.id));
+    row.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        focusRecordOnMap(record.id);
+      }
+    });
+
     tbody.appendChild(row);
   });
+}
+
+function focusRecordOnMap(recordId) {
+  if (!map || !markersLayer) return;
+  const marker = markersById.get(String(recordId));
+  if (!marker) return;
+
+  const latLng = marker.getLatLng();
+
+  const prefersReducedMotion = window.matchMedia
+    ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    : false;
+
+  // Se estiver usando cluster, garante que o marcador fique visível
+  if (typeof markersLayer.zoomToShowLayer === "function") {
+    markersLayer.zoomToShowLayer(marker, () => {
+      map.setView(latLng, Math.max(map.getZoom(), 10), {
+        animate: !prefersReducedMotion,
+      });
+      marker.openPopup();
+    });
+    return;
+  }
+
+  map.setView(latLng, Math.max(map.getZoom(), 10), {
+    animate: !prefersReducedMotion,
+  });
+  marker.openPopup();
 }
 
 // Formata data
@@ -539,6 +643,15 @@ function setupEventListeners() {
   document
     .getElementById("genero-filter")
     .addEventListener("change", handleFilterChange);
+
+  const localidadeInput = document.getElementById("localidade-filter");
+  if (localidadeInput) {
+    localidadeInput.addEventListener("input", function () {
+      window.clearTimeout(localidadeSearchTimer);
+      localidadeSearchTimer = window.setTimeout(handleFilterChange, 150);
+    });
+  }
+
   document
     .getElementById("reset-filters")
     .addEventListener("click", resetFilters);
@@ -554,5 +667,7 @@ function resetFilters() {
   document.getElementById("grupo-filter").value = "";
   document.getElementById("ordem-filter").value = "";
   document.getElementById("genero-filter").value = "";
+  const localidadeInput = document.getElementById("localidade-filter");
+  if (localidadeInput) localidadeInput.value = "";
   handleFilterChange();
 }

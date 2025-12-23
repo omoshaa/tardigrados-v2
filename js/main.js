@@ -3,10 +3,23 @@
 // ===================================
 
 document.addEventListener("DOMContentLoaded", function () {
+  registerServiceWorker();
   initMobileMenu();
   initScrollToTop();
   initNavbarScroll();
+  updateActiveNav();
 });
+
+function registerServiceWorker() {
+  if (!("serviceWorker" in navigator)) return;
+
+  // Service workers exigem http(s) (exceto localhost)
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("../sw.js").catch(() => {
+      // Silencioso: não quebra a navegação se SW falhar
+    });
+  });
+}
 
 // ============================================================
 // MENU MOBILE
@@ -16,12 +29,26 @@ function initMobileMenu() {
   const mobileNav = document.getElementById("mobileNav");
   const closeMenuBtn = document.getElementById("closeMenuBtn");
 
+  let lastFocusedElement = null;
+
   if (mobileMenuBtn && mobileNav) {
+    // Estado inicial
+    mobileMenuBtn.setAttribute("aria-expanded", "false");
+    mobileNav.setAttribute("aria-hidden", "true");
+
     // Abrir menu
     mobileMenuBtn.addEventListener("click", function () {
+      lastFocusedElement = document.activeElement;
       mobileNav.classList.add("active");
       mobileMenuBtn.classList.add("active");
+      mobileMenuBtn.setAttribute("aria-expanded", "true");
+      mobileNav.setAttribute("aria-hidden", "false");
       document.body.style.overflow = "hidden";
+
+      // Focar o botão de fechar (melhor para teclado)
+      if (closeMenuBtn) {
+        closeMenuBtn.focus();
+      }
     });
 
     // Fechar menu
@@ -35,18 +62,27 @@ function initMobileMenu() {
       item.addEventListener("click", closeMenu);
     });
 
-    // Fechar ao clicar fora
-    mobileNav.addEventListener("click", function (e) {
-      if (e.target === mobileNav) {
+    // Fechar com ESC
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && mobileNav.classList.contains("active")) {
         closeMenu();
       }
     });
   }
 
   function closeMenu() {
+    if (!mobileNav || !mobileMenuBtn) return;
     mobileNav.classList.remove("active");
     mobileMenuBtn.classList.remove("active");
+    mobileMenuBtn.setAttribute("aria-expanded", "false");
+    mobileNav.setAttribute("aria-hidden", "true");
     document.body.style.overflow = "auto";
+
+    if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+      lastFocusedElement.focus();
+    } else {
+      mobileMenuBtn.focus();
+    }
   }
 }
 
@@ -68,9 +104,13 @@ function initScrollToTop() {
 
     // Voltar ao topo ao clicar
     scrollBtn.addEventListener("click", function () {
+      const prefersReducedMotion = window.matchMedia
+        ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        : false;
+
       window.scrollTo({
         top: 0,
-        behavior: "smooth",
+        behavior: prefersReducedMotion ? "auto" : "smooth",
       });
     });
   }
@@ -99,16 +139,25 @@ function initNavbarScroll() {
 function updateActiveNav() {
   const currentPage = window.location.pathname.split("/").pop();
   const navItems = document.querySelectorAll(".nav-item");
+  const mobileNavItems = document.querySelectorAll(".mobile-nav-item");
 
   navItems.forEach((item) => {
     const href = item.getAttribute("href");
     if (href === currentPage) {
       item.classList.add("active");
+      item.setAttribute("aria-current", "page");
     } else {
       item.classList.remove("active");
+      item.removeAttribute("aria-current");
+    }
+  });
+
+  mobileNavItems.forEach((item) => {
+    const href = item.getAttribute("href");
+    if (href === currentPage) {
+      item.setAttribute("aria-current", "page");
+    } else {
+      item.removeAttribute("aria-current");
     }
   });
 }
-
-// Atualizar ao carregar
-updateActiveNav();
